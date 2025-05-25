@@ -21,20 +21,23 @@ body {
     width: 340px;
     height: 340px;
     object-fit: cover;
-    object-position: 50% 20%; /* Zeigt mehr vom oberen Bildbereich (Kopf) */
+    object-position: 50% 20%;
     border-radius: 50%;
     box-shadow: 0 4px 24px rgba(44,62,80,0.12);
     border: 3px solid #e3e6ec;
     margin-bottom: 1.5rem;
+    z-index: 1;
 }
 
 .circle-buttons {
-    position: relative;
-    width: 420px;
-    height: 420px;
-    margin-top: -260px; /* Überlappt das Bild */
-    pointer-events: none; /* Buttons selbst sind pointer-events: auto */
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
     animation: rotate-circle 8s linear infinite;
+    z-index: 2;
 }
 
 @keyframes rotate-circle {
@@ -45,6 +48,12 @@ body {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.main-content {
+    position: relative;
+    width: 340px;
+    height: 340px;
 }
 
 .circle-btn {
@@ -66,8 +75,8 @@ body {
     outline: none;
     border: none;
     pointer-events: auto;
-    /* Die Schrift bleibt lesbar */
-    will-change: transform;
+    will-change: transform, left, top, width, height;
+    z-index: 3;
 }
 
     .circle-btn span {
@@ -79,4 +88,16 @@ body {
         box-shadow: 0 8px 32px rgba(25,118,210,0.18);
         color: #125ea2;
         transform: scale(1.07);
+    }
+
+    /* Animation für Klick */
+    .circle-btn.animate-to-center {
+        transition: left 0.6s cubic-bezier(.4,2,.6,1), top 0.6s cubic-bezier(.4,2,.6,1), width 0.6s cubic-bezier(.4,2,.6,1), height 0.6s cubic-bezier(.4,2,.6,1), font-size 0.6s cubic-bezier(.4,2,.6,1), background 0.3s;
+        left: 50% !important;
+        top: 50% !important;
+        width: 200px !important;
+        height: 200px !important;
+        font-size: 2rem !important;
+        transform: translate(-50%, -50%) scale(1.1) !important;
+        z-index: 10;
     }
