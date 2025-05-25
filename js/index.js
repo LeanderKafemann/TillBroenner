@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const circle = document.querySelector('.circle-buttons');
     const mainContent = document.querySelector('.main-content');
     const numButtons = buttons.length;
-    const radius = 125; // Abstand vom Mittelpunkt (kleiner als Bildradius)
+    const radius = 200; // Abstand vom Mittelpunkt (kleiner als Bildradius)
 
     // Positioniere Buttons kreisförmig um das Bildzentrum
     buttons.forEach((btn, i) => {
