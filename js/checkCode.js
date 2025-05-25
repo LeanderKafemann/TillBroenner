@@ -23,10 +23,12 @@ async function checkVerificationCode() {
         document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     }
 
+    const loginUrl = 'https://leanderkafemann.github.io/TillBroenner/login/';
+
     const code = getCookie('verify-code');
     if (!code) {
         setCookie('login-value', 'none', 7);
-        window.location.href = '/login/';
+        window.location.href = loginUrl;
         return;
     }
 
@@ -39,12 +41,12 @@ async function checkVerificationCode() {
         } else {
             deleteCookie('verify-code');
             setCookie('login-value', 'failed', 7);
-            window.location.href = '/login/';
+            window.location.href = loginUrl;
         }
     } catch (error) {
         deleteCookie('verify-code');
         setCookie('login-value', 'failed', 7);
-        window.location.href = '/login/';
+        window.location.href = loginUrl;
     }
 }
 
