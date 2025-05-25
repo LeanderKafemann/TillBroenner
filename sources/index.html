@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Quellen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styling/login.css">
+    <style>
+        .sources-container {
+            background: #f9f9f9;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        ul {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+    </style>
+    <script src="../js/checkCode.js"></script>
+    <script>// Body erst nach Verifizierung anzeigen
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.style.display = "none";
+            checkVerificationCode().then(() => {
+                document.body.style.display = "";
+            });
+        });</script>
+</head>
+<body>
+    <div class="sources-container">
+        <h1>Quellen</h1>
+        <ul>
+            <li>Webseiten-Logo: <a href="https://tillbroenner.de/" target="_blank">Till Brönner - Homepage</a></li>
+            <li>W3Schools: <a href="https://www.w3schools.com/" target="_blank">https://www.w3schools.com/</a></li>
+            <li>Google Fonts: <a href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a></li>
+            <li>PythonAnywhere: <a href="https://www.pythonanywhere.com/" target="_blank">https://www.pythonanywhere.com/</a></li>
+            <li>Stack Overflow: <a href="https://stackoverflow.com/" target="_blank">https://stackoverflow.com/</a></li>
+        </ul>
+    </div>
+</body>
+</html>
