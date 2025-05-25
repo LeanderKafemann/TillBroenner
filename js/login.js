@@ -56,8 +56,8 @@ document.addEventListener("DOMContentLoaded", function() {
         e.preventDefault();
         const code = document.getElementById('code').value.trim();
         if (code) {
-            setCookie('verify-code', code, 7); // Cookie für 7 Tage setzen
-            window.location.href = "/index.html";
+            setCookie('verify-code', code, 31); // Cookie für 7 Tage setzen
+            window.location.href = "../";
         }
     });
 });

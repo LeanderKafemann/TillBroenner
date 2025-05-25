@@ -7,9 +7,25 @@ async function checkVerificationCode() {
         return null;
     }
 
+    // Hilfsfunktion, um ein Cookie zu setzen
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+    }
+
+    // Hilfsfunktion, um ein Cookie zu löschen
+    function deleteCookie(name) {
+        document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+
     const code = getCookie('verify-code');
     if (!code) {
-        // Kein Code vorhanden, weiterleiten zur Login-Seite
+        setCookie('login-value', 'none', 7);
         window.location.href = '/login/index.html';
         return;
     }
@@ -19,13 +35,16 @@ async function checkVerificationCode() {
         const text = await response.text();
         if (text.trim() === "verified") {
             console.log("Verifizierung erfolgreich.");
-           document.body.style.display = '';
+            document.body.style.display = '';
         } else {
-            // Nicht verifiziert, Weiterleitung zur Login-Seite
+            deleteCookie('verify-code');
+            setCookie('login-value', 'failed', 7);
             window.location.href = '/login/index.html';
         }
     } catch (error) {
-        // Bei Fehler ebenfalls weiterleiten
-        window.location.href = '/login/index.html';
+        deleteCookie('verify-code');
+        setCookie('login-value', 'failed', 7);
+        window.location.href = '/login/';
     }
 }
+
