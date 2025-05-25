@@ -48,4 +48,4 @@ async function checkVerificationCode() {
     }
 }
 
-checkCode();
+checkVerificationCode();
