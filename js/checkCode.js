@@ -37,7 +37,7 @@ async function checkVerificationCode() {
         const text = await response.text();
         if (text.trim() === "verified") {
             console.log("Verifizierung erfolgreich.");
-            document.body.style.display = 'block';
+            document.body.style.display = 'flex';
         } else {
             deleteCookie('verify-code');
             setCookie('login-value', 'failed', 7);
