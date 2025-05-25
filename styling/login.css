@@ -10,22 +10,30 @@ body {
 }
 
 .login-container {
-    background: #f9f9f9;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     padding: 2.5rem 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15), 0 1.5px 6px rgba(44, 62, 80, 0.08);
+    border: 1.5px solid #e3e6ec;
     width: 100%;
-    max-width: 350px;
+    max-width: 370px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: box-shadow 0.3s, transform 0.3s;
 }
 
+    .login-container:hover {
+        box-shadow: 0 16px 48px rgba(44, 62, 80, 0.22), 0 3px 12px rgba(44, 62, 80, 0.12);
+        transform: translateY(-4px) scale(1.02);
+    }
+
 .login-title {
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1.6rem;
+    font-weight: 600;
     margin-bottom: 1.5rem;
     color: #222;
+    letter-spacing: 0.5px;
 }
 
 .input-group {
@@ -43,30 +51,36 @@ label {
 input[type="text"] {
     width: 100%;
     padding: 0.75rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    border: 1.5px solid #b0bec5;
+    border-radius: 8px;
     font-size: 1rem;
-    transition: border-color 0.2s;
+    background: #f9f9fb;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 2px rgba(44, 62, 80, 0.04);
 }
 
     input[type="text"]:focus {
         border-color: #1976d2;
+        box-shadow: 0 0 0 2px #bbdefb;
         outline: none;
     }
 
 .login-btn {
     width: 100%;
     padding: 0.75rem;
-    background: #1976d2;
+    background: linear-gradient(90deg, #1976d2 0%, #42a5f5 100%);
     color: #fff;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
     .login-btn:hover {
-        background: #125ea2;
+        background: linear-gradient(90deg, #125ea2 0%, #1976d2 100%);
+        box-shadow: 0 4px 16px rgba(25, 118, 210, 0.16);
+        transform: translateY(-2px) scale(1.01);
     }
