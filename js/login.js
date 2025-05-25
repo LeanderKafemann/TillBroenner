@@ -15,6 +15,10 @@ function getCookie(name) {
     return null;
 }
 
+function deleteCookie(name) {
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
 function showMessage(message, type = "info") {
     let msgDiv = document.getElementById('login-message');
     if (!msgDiv) {
@@ -49,8 +53,11 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = "../";
         return;
     }
-    // Cookie login-value prüfen
+    // Cookie login-value prüfen und ggf. löschen
     const loginValue = getCookie('login-value');
+    if (loginValue !== null) {
+        deleteCookie('login-value');
+    }
     if (loginValue === "failed") {
         showMessage("Verifizierung fehlgeschlagen. Bitte versuchen Sie es erneut.", "error");
     } else if (loginValue === "none") {
@@ -62,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
         e.preventDefault();
         const code = document.getElementById('code').value.trim();
         if (code) {
-            setCookie('verify-code', code, 31); // Cookie für 7 Tage setzen
+            setCookie('verify-code', code, 31); // Cookie für 31 Tage setzen
             window.location.href = "../";
         }
     });
