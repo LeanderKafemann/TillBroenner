@@ -26,7 +26,7 @@ async function checkVerificationCode() {
     const code = getCookie('verify-code');
     if (!code) {
         setCookie('login-value', 'none', 7);
-        window.location.href = '/login/index.html';
+        window.location.href = '/login/';
         return;
     }
 
@@ -39,7 +39,7 @@ async function checkVerificationCode() {
         } else {
             deleteCookie('verify-code');
             setCookie('login-value', 'failed', 7);
-            window.location.href = '/login/index.html';
+            window.location.href = '/login/';
         }
     } catch (error) {
         deleteCookie('verify-code');
