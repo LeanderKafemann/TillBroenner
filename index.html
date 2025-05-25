@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="./images/logo.png">
     <title>Geschützte Seite</title>
+    <link rel="stylesheet" href="./styling/index.css">
     <style>
         body {
             display: none;
         }
     </style>
     <script src="./js/checkCode.js"></script>
+    <script src="./js/index.js" defer></script>
 </head>
 <body>
+    <div class="main-content">
+        <img src="./images/broenner.png" alt="Broenner" class="main-image">
+        <div class="circle-buttons">
+            <button class="circle-btn" data-link="./sources/">
+                <span>Quellen</span>
+            </button>
+            <button class="circle-btn" data-link="./lebenslauf/">
+                <span>Lebenslauf</span>
+            </button>
+            <button class="circle-btn" data-link="./kontakt/">
+                <span>Kontakt</span>
+            </button>
+        </div>
+    </div>
 </body>
 </html>
