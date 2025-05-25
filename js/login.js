@@ -43,6 +43,12 @@ function showMessage(message, type = "info") {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+    // Prüfen, ob bereits ein Code vorhanden ist
+    const existingCode = getCookie('verify-code');
+    if (existingCode) {
+        window.location.href = "../";
+        return;
+    }
     // Cookie login-value prüfen
     const loginValue = getCookie('login-value');
     if (loginValue === "failed") {
