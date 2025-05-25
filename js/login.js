@@ -1,42 +1,76 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Kreis-Positionierung der Buttons
-    const buttons = document.querySelectorAll('.circle-btn');
-    const circle = document.querySelector('.circle-buttons');
-    const radius = 180; // Abstand vom Mittelpunkt
-
-    buttons.forEach((btn, i) => {
-        const angle = (i / buttons.length) * 2 * Math.PI;
-        const x = Math.cos(angle) * radius + 210 - 45; // 210 = Hälfte von .circle-buttons, 45 = Hälfte von Button
-        const y = Math.sin(angle) * radius + 210 - 45;
-        btn.style.left = `${x}px`;
-        btn.style.top = `${y}px`;
-    });
-
-    // Gegenrotation, damit die Schrift nicht rotiert
-    circle.addEventListener('animationiteration', () => {}); // Für eventuelle spätere Erweiterungen
-
-    // Schrift bleibt lesbar: per AnimationFrame die Gegenrotation setzen
-    function updateButtonRotation() {
-        const computedStyle = window.getComputedStyle(circle);
-        const matrix = computedStyle.transform;
-        let angle = 0;
-        if (matrix && matrix !== "none") {
-            const values = matrix.split('(')[1].split(')')[0].split(',');
-            const a = values[0], b = values[1];
-            angle = Math.atan2(b, a) * (180/Math.PI);
-        }
-        buttons.forEach(btn => {
-            btn.style.transform = `rotate(${-angle}deg)`;
-        });
-        requestAnimationFrame(updateButtonRotation);
+ï»¿function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
     }
-    updateButtonRotation();
+    document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+}
 
-    // Navigation
-    buttons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const link = btn.getAttribute('data-link');
-            if (link) window.location.href = link;
-        });
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+}
+
+function deleteCookie(name) {
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+function showMessage(message, type = "info") {
+    let msgDiv = document.getElementById('login-message');
+    if (!msgDiv) {
+        msgDiv = document.createElement('div');
+        msgDiv.id = 'login-message';
+        msgDiv.style.marginBottom = "1rem";
+        msgDiv.style.padding = "0.75rem 1rem";
+        msgDiv.style.borderRadius = "6px";
+        msgDiv.style.fontSize = "1rem";
+        msgDiv.style.textAlign = "center";
+        msgDiv.style.maxWidth = "350px";
+        msgDiv.style.marginLeft = "auto";
+        msgDiv.style.marginRight = "auto";
+        document.body.insertBefore(msgDiv, document.body.firstChild);
+    }
+    msgDiv.textContent = message;
+    if (type === "error") {
+        msgDiv.style.background = "#ffeaea";
+        msgDiv.style.color = "#b71c1c";
+        msgDiv.style.border = "1px solid #f44336";
+    } else {
+        msgDiv.style.background = "#e3f2fd";
+        msgDiv.style.color = "#1565c0";
+        msgDiv.style.border = "1px solid #90caf9";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Prï¿½fen, ob bereits ein Code vorhanden ist
+    const existingCode = getCookie('verify-code');
+    if (existingCode) {
+        window.location.href = "../";
+        return;
+    }
+    // Cookie login-value prï¿½fen und ggf. lï¿½schen
+    const loginValue = getCookie('login-value');
+    if (loginValue !== null) {
+        deleteCookie('login-value');
+    }
+    if (loginValue === "failed") {
+        showMessage("Verifizierung fehlgeschlagen. Bitte versuchen Sie es erneut.", "error");
+    } else if (loginValue === "none") {
+        showMessage("Es wurde noch kein Verifizierungscode gespeichert.", "info");
+    }
+
+    const form = document.querySelector('.login-container');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const code = document.getElementById('code').value.trim();
+        if (code) {
+            setCookie('verify-code', code, 31); // Cookie fï¿½r 31 Tage setzen
+            window.location.href = "../";
+        }
     });
 });
