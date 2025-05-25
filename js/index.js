@@ -1,15 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
     const buttons = document.querySelectorAll('.circle-btn');
     const circle = document.querySelector('.circle-buttons');
-    const mainContent = document.querySelector('.main-content');
     const numButtons = buttons.length;
-    const radius = 200; // Abstand vom Mittelpunkt (kleiner als Bildradius)
+    const radius = 200; // Abstand vom Mittelpunkt, passend zur neuen Bildgröße
 
-    // Positioniere Buttons kreisförmig um das Bildzentrum
+    // Mittelpunkt der Box (420/2 = 210), Button-Hälfte (90/2 = 45)
     buttons.forEach((btn, i) => {
         const angle = (i / numButtons) * 2 * Math.PI - Math.PI / 2; // Start bei oben
-        const x = Math.cos(angle) * radius + 170 - 45; // 170 = 340/2, 45 = 90/2
-        const y = Math.sin(angle) * radius + 170 - 45;
+        const x = Math.cos(angle) * radius + 210 - 45;
+        const y = Math.sin(angle) * radius + 210 - 45;
         btn.style.left = `${x}px`;
         btn.style.top = `${y}px`;
     });

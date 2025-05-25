@@ -10,16 +10,20 @@ body {
 }
 
 .main-content {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 420px; /* an neue Bildgröße angepasst */
+    height: 420px;
     gap: 3.5rem;
     margin-top: 80px;
 }
 
 .main-image {
-    width: 340px;
-    height: 340px;
+    width: 420px; /* Bild größer */
+    height: 420px;
     object-fit: cover;
     object-position: 50% 20%;
     border-radius: 50%;
@@ -31,13 +35,14 @@ body {
 
 .circle-buttons {
     position: absolute;
-    width: 340px;
-    height: 340px;
+    width: 420px;
+    height: 420px;
     top: 0;
     left: 0;
     pointer-events: none;
     animation: rotate-circle 8s linear infinite;
     z-index: 2;
+    display: block;
 }
 
 @keyframes rotate-circle {
@@ -48,12 +53,6 @@ body {
     100% {
         transform: rotate(360deg);
     }
-}
-
-.main-content {
-    position: relative;
-    width: 340px;
-    height: 340px;
 }
 
 .circle-btn {
@@ -90,7 +89,6 @@ body {
         transform: scale(1.07);
     }
 
-    /* Animation für Klick */
     .circle-btn.animate-to-center {
         transition: left 0.6s cubic-bezier(.4,2,.6,1), top 0.6s cubic-bezier(.4,2,.6,1), width 0.6s cubic-bezier(.4,2,.6,1), height 0.6s cubic-bezier(.4,2,.6,1), font-size 0.6s cubic-bezier(.4,2,.6,1), background 0.3s;
         left: 50% !important;
