@@ -24,15 +24,12 @@
             font-size: 1.1rem;
             line-height: 1.7;
         }
+
+        body {
+            display: none;
+        }
     </style>
     <script src="../js/checkCode.js"></script>
-    <script>// Body erst nach Verifizierung anzeigen
-        document.addEventListener("DOMContentLoaded", function() {
-            document.body.style.display = "none";
-            checkVerificationCode().then(() => {
-                document.body.style.display = "";
-            });
-        });</script>
 </head>
 <body>
     <div class="sources-container">
