@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const buttons = document.querySelectorAll('.circle-btn');
     const circle = document.querySelector('.circle-buttons');
     const numButtons = buttons.length;
-    const radius = 200; // Abstand vom Mittelpunkt, passend zur neuen Bildgröße
+    const radius = 220; // Abstand vom Mittelpunkt, passend zur neuen Bildgröße
 
     // Mittelpunkt der Box (420/2 = 210), Button-Hälfte (90/2 = 45)
     buttons.forEach((btn, i) => {
