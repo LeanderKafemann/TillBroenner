@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <title>Quellen</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styling/login.css">
     <link rel="icon" type="image/png" href="../images/logo.png">
-    <link rel="stylesheet" href="../styling/sources.css" />
+    <!-- Allgemeines zentrales Box-Layout und Animationen -->
+    <link rel="stylesheet" href="../styling/centeredBox.css">
+    <!-- Seitenspezifisches Styling -->
+    <link rel="stylesheet" href="../styling/sources.css">
     <script src="../js/checkCode.js"></script>
+    <!-- Allgemeine Animationen für Seitenübergänge -->
+    <script src="../js/centeredBox.js" defer></script>
+    <!-- Seitenspezifisches Skript -->
+    <script src="../js/sources.js" defer></script>
 </head>
 <body>
-    <div class="sources-container">
+    <!-- Seitenspezifischer Bereich: Quellen-Box -->
+    <div class="centered-box sources-box">
+        <img src="../images/broenner.png" alt="Broenner" class="centered-box-image">
         <h1>Quellen</h1>
-        <ul>
-            <li>Webseiten-Logo: <a href="https://tillbroenner.de/" target="_blank">Till Br&ouml;nner - Homepage</a></li>
-            <li>W3Schools: <a href="https://www.w3schools.com/" target="_blank">https://www.w3schools.com/</a></li>
-            <li>Google Fonts: <a href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a></li>
-            <li>PythonAnywhere: <a href="https://www.pythonanywhere.com/" target="_blank">https://www.pythonanywhere.com/</a></li>
-            <li>Stack Overflow: <a href="https://stackoverflow.com/" target="_blank">https://stackoverflow.com/</a></li>
-        </ul>
+        <div class="scrollable-content">
+            <ul>
+                <li>Webseiten-Logo: <a href="https://tillbroenner.de/" target="_blank">Till Br&ouml;nner - Homepage</a></li>
+                <li>W3Schools: <a href="https://www.w3schools.com/" target="_blank">https://www.w3schools.com/</a></li>
+                <li>Google Fonts: <a href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a></li>
+                <li>PythonAnywhere: <a href="https://www.pythonanywhere.com/" target="_blank">https://www.pythonanywhere.com/</a></li>
+                <li>Stack Overflow: <a href="https://stackoverflow.com/" target="_blank">https://stackoverflow.com/</a></li>
+            </ul>
+        </div>
     </div>
+    <!-- Ende seitenspezifischer Bereich -->
 </body>
 </html>
