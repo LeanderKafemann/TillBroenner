@@ -10,7 +10,7 @@ function setCookie(name, value, days) {
 
 function getVerifyCodeFromUrl() {
     const params = new URLSearchParams(window.location.search);
-    return params.get('verify-code');
+    return params.get('code');
 }
 
 document.addEventListener("DOMContentLoaded", function() {
