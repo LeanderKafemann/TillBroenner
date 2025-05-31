@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Musiktitel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <!-- Allgemeines zentrales Box-Layout und Animationen -->
+    <link rel="stylesheet" href="../styling/centeredBox.css">
+    <!-- Seitenspezifisches Styling -->
+    <link rel="stylesheet" href="../styling/musik.css">
+    <script src="../js/checkCode.js"></script>
+    <!-- Allgemeine Animationen f�r Seiten�berg�nge -->
+    <script src="../js/centeredBox.js" defer></script>
+    <!-- Seitenspezifisches Skript -->
+    <script src="../js/podcast.js" defer></script>
+</head>
+<body>
+    <div class="centered-box musik-box" style="overflow: visible !important;">
+        <button class="back-btn" onclick="window.location.href='../index.html'">Zur&uuml;ck</button>
+        <img src="../images/broenner.png" alt="Broenner" class="centered-box-image">
+        <h1>Podcasts</h1>
+        <div class="scrollable-content" id="musik-titel-list">
+            <!-- Die Buttons f�r die Musiktitel werden per JS eingef�gt -->
+        </div>
+    </div>
+</body>
+</html>
