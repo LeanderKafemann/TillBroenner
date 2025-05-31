@@ -135,3 +135,19 @@ body {
     .back-btn:active {
         animation: back-btn-click 0.4s cubic-bezier(.4,2,.6,1);
     }
+
+p {
+    text-align: center;
+}
+
+image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+    margin-top: 1rem;
+    -ms-align-content: inherit;
+    -webkit-align-content: inherit;
+    align-content: inherit;
+}
