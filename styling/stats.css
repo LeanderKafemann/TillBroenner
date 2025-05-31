@@ -1,0 +1,14 @@
+.stats-box {
+    min-height: 500px;
+}
+
+.stats-loading, .stats-error {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    color: #1976d2;
+}
+
+.stats-error {
+    color: #b71c1c;
+}

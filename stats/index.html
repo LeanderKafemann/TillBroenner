@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistiken</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <!-- Allgemeines zentrales Box-Layout und Animationen -->
+    <link rel="stylesheet" href="../styling/centeredBox.css">
+    <!-- Seitenspezifisches Styling -->
+    <link rel="stylesheet" href="../styling/stats.css">
+    <!-- Chart.js für Diagramme -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/checkCode.js"></script>
+    <!-- Allgemeine Animationen für Seitenübergänge -->
+    <script src="../js/centeredBox.js" defer></script>
+    <!-- Seitenspezifisches Skript -->
+    <script src="../js/stats.js" defer></script>
+</head>
+<body>
+    <!-- Nicht seitenspezifischer Bereich: Box-Layout und Bild -->
+    <div class="centered-box stats-box">
+        <button class="back-btn" onclick="window.location.href='../index.html'">Zurück</button>
+        <img src="../images/broenner.png" alt="Broenner" class="centered-box-image">
+        <!-- Seitenspezifischer Bereich: Statistiken -->
+        <h1>Statistiken</h1>
+        <div class="scrollable-content">
+            <canvas id="statsChart" width="350" height="250"></canvas>
+            <div id="stats-loading" class="stats-loading">Lade Statistiken...</div>
+            <div id="stats-error" class="stats-error" style="display:none;">Fehler beim Laden der Statistiken.</div>
+        </div>
+        <!-- Ende seitenspezifischer Bereich -->
+    </div>
+</body>
+</html>
